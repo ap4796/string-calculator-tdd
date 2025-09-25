@@ -35,4 +35,10 @@ public class CalculatorTest {
         Calculator calculator = new Calculator();
         assertEquals(6, calculator.add("1\n2,3")); // 1+2+3=6
     }
+
+    @Test
+    void customDelimiterReturnsSum() {
+        Calculator calculator = new Calculator();
+        assertEquals(3, calculator.add("//;\n1;2")); // custom delimiter ";" → sum = 3
+    }
 }
