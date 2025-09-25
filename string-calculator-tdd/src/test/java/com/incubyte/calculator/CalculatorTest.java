@@ -41,4 +41,14 @@ public class CalculatorTest {
         Calculator calculator = new Calculator();
         assertEquals(3, calculator.add("//;\n1;2")); // custom delimiter ";" → sum = 3
     }
+
+    @Test
+    void negativeNumbersThrowsException(){
+        Calculator calculator = new Calculator();
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> calculator.add("1,-2,3")
+        );
+        assertEquals("negative numbers not allowed: -2", exception.getMessage());
+    }
 }
